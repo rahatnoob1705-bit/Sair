@@ -1,45 +1,44 @@
-/* Основные карточки персонажей */
+body {
+    background-image: url('Images/ONEPIECE.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    font-family: sans-serif;
+}
+
 .card {
-    border: solid 2px;
-    width: 300px; /* Сделали чуть меньше 750, чтобы влезали в ряд */
-    height: auto;
+    border: 2px solid #333;
+    width: 250px;
     margin: 20px;
     padding: 15px;
     display: inline-block;
     vertical-align: top;
     text-align: center;
-    background-color: white;
-    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9); /* Белый фон с легкой прозрачностью */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Красивая тень */
 }
 
-/* Блок с Дзимбэем в самом низу */
 .jinbe-card {
-    border: solid 3px #0056b3;
+    border: 3px solid #0056b3;
     width: 400px;
-    margin: 800px auto 100px auto; /* 800px сверху создают прокрутку */
+    margin: 100px auto 50px auto; 
     padding: 20px;
     background-color: white;
     border-radius: 20px;
     text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 p {
-    border: solid 1px;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    padding: 5px;
+    padding: 8px;
     margin-top: 10px;
-    background-color: #f9f9f9;
+    background-color: #fcfcfc;
 }
 
 img {
-    border-radius: 5px;
-}
-
-body {
-    background-image: url('Images/ONEPIECE.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 0;
+    border-radius: 10px;
 }
