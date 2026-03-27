@@ -1,0 +1,45 @@
+/* Основные карточки персонажей */
+.card {
+    border: solid 2px;
+    width: 300px; /* Сделали чуть меньше 750, чтобы влезали в ряд */
+    height: auto;
+    margin: 20px;
+    padding: 15px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* Блок с Дзимбэем в самом низу */
+.jinbe-card {
+    border: solid 3px #0056b3;
+    width: 400px;
+    margin: 800px auto 100px auto; /* 800px сверху создают прокрутку */
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+}
+
+p {
+    border: solid 1px;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+}
+
+img {
+    border-radius: 5px;
+}
+
+body {
+    background-image: url('Images/ONEPIECE.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+}
