@@ -2,62 +2,147 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ван Пис Карточки</title>
     
     <style>
+      /* Настройки фона всей страницы */
       body {
-        background-image: url('Images/ONEPIECE.jpg');
+        background-image: url('Images/ONEPIECE.jpg'); /* */
         background-size: cover;
         background-attachment: fixed;
-        background-color: #222;
+        background-position: center;
+        background-color: #1a1a1a;
         margin: 0;
-        text-align: center;
-      }
-      .card {
-        border: 2px solid gold;
-        width: 250px;
-        margin: 20px;
-        padding: 15px;
-        display: inline-block;
-        vertical-align: top;
-        background-color: rgba(255, 255, 255, 0.9);
-        border-radius: 15px;
-      }
-      .jinbe-card {
-        border: 3px solid blue;
-        width: 400px;
-        margin: 50px auto;
         padding: 20px;
-        background-color: white;
-        border-radius: 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        color: #fff;
       }
-      p { font-family: sans-serif; font-weight: bold; }
-      img { border-radius: 10px; }
+
+      /* Общий контейнер для карточек */
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 30px;
+      }
+
+      /* Стили основной карточки персонажа */
+      .card {
+        background: rgba(255, 255, 255, 0.95);
+        border: 2px solid gold;
+        border-radius: 20px;
+        padding: 15px;
+        width: 220px;
+        color: #333;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        transition: all 0.4s ease; /* Плавность эффектов */
+        animation: fadeInUp 0.8s ease-out; /* Анимация появления */
+      }
+
+      /* Эффект при наведении на карточку */
+      .card:hover {
+        transform: translateY(-15px) scale(1.05); /* Приподнимаем и увеличиваем */
+        box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4); /* Золотистое свечение */
+        border-color: #ff4500;
+      }
+
+      .card img {
+        border-radius: 12px;
+        transition: transform 0.4s ease;
+        width: 100%;
+        height: auto;
+      }
+
+      /* Увеличение картинки внутри при наведении */
+      .card:hover img {
+        transform: scale(1.02);
+      }
+
+      /* Стили текста и кнопок */
+      .card p {
+        font-weight: bold;
+        font-size: 1.1em;
+        margin: 15px 0;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 8px 20px;
+        background-color: #ff4500;
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-size: 0.9em;
+        transition: background 0.3s;
+      }
+
+      .btn:hover {
+        background-color: #cc3700;
+      }
+
+      /* Особенная карточка для коллекции (Дзимбэй) */
+      .jinbe-card {
+        background: white;
+        border: 4px solid #0056b3;
+        border-radius: 25px;
+        padding: 25px;
+        max-width: 500px;
+        margin: 60px auto;
+        color: #333;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+        animation: fadeInUp 1.2s ease-out;
+      }
+
+      .jinbe-card img {
+        border-radius: 15px;
+        width: 100%;
+        max-width: 350px;
+      }
+
+      /* Анимация плавного появления снизу */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <img src="Images/LuffyGPT.jpg" width="180px">
-        <p>Луффи - капитан корабля.</p>
-        <a href="https://onepiece.fandom.com/ru/wiki/Монки_Д._Луффи" target="_blank">Ссылка</a>
-    </div>
+    <h1>🏴‍☠️ Моя Пиратская Команда 🏴‍☠️</h1>
 
-    <div class="card">
-        <img src="Images/ZoroGPT.jpg" width="180px">
-        <p>Зоро - мастер трех мечей.</p>
-        <a href="https://onepiece.fandom.com/ru/wiki/Ророноа_Зоро" target="_blank">Ссылка</a>
-    </div>
+    <div class="container">
+        <div class="card">
+            <img src="Images/LuffyGPT.jpg" alt="Луффи">
+            <p>Монки Д. Луффи</p>
+            <a href="https://onepiece.fandom.com/ru/wiki/Монки_Д._Луффи" class="btn" target="_blank">Узнать больше</a>
+        </div>
 
-    <div class="card">
-        <img src="Images/NamiGPT.jpg" width="180px">
-        <p>Нами - лучший навигатор.</p>
-        <a href="https://onepiece.fandom.com/ru/wiki/Нами" target="_blank">Ссылка</a>
+        <div class="card" style="animation-delay: 0.2s;">
+            <img src="Images/ZoroGPT.jpg" alt="Зоро">
+            <p>Ророноа Зоро</p>
+            <a href="https://onepiece.fandom.com/ru/wiki/Ророноа_Зоро" class="btn" target="_blank">Узнать больше</a>
+        </div>
+
+        <div class="card" style="animation-delay: 0.4s;">
+            <img src="Images/NamiGPT.jpg" alt="Нами">
+            <p>Нами</p>
+            <a href="https://onepiece.fandom.com/ru/wiki/Нами" class="btn" target="_blank">Узнать больше</a>
+        </div>
     </div>
 
     <div class="jinbe-card">
-        <img src="Images/jinbe_figure.jpg" width="300px">
-        <p>Моя коллекция: Фигурка Дзимбэя</p>
+        <h2>💎 Моя коллекция</h2>
+        <img src="Images/jinbe_figure.jpg" alt="Дзимбэй">
+        <p>Эксклюзивная фигурка: Рыбочеловек Дзимбэй</p>
     </div>
 
 </body>
