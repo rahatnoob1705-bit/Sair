@@ -6,7 +6,7 @@
     <title>Ван Пис Карточки</title>
     
     <style>
-      /* === НАСТРОЙКИ КУРСОРА НА ВСЕЙ СТРАНИЦЕ === */
+      /* === НАСТРОЙКИ КУРСОРА И БАЗОВЫЕ СТИЛИ === */
       body {
         background-image: url('Images/ONEPIECE.jpg');
         background-size: cover;
@@ -18,18 +18,68 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         text-align: center;
         color: #fff;
+        transition: background 0.5s ease, color 0.5s ease; /* Плавный переход темы */
         
-        /* === ПИКСЕЛЬНЫЙ МЕЧ ЗОРО (64x64) === */
-        /* Изменили название на cursor_zoro_64.png */
+        /* ПИКСЕЛЬНЫЙ МЕЧ ЗОРО (64x64) */
         cursor: url('Images/cursor_zoro_64.png') 0 0, auto;
       }
 
-      /* Сохраняем чёткость пикселей для всех элементов */
+      /* Сохраняем чёткость пикселей */
       body * {
         image-rendering: pixelated;
       }
 
-      /* При наведении на интерактивные элементы курсор меняется на указатель */
+      /* === КНОПКА ПЕРЕКЛЮЧЕНИЯ ТЕМЫ === */
+      .theme-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        background: gold;
+        color: #333;
+        border: 2px solid #333;
+        border-radius: 25px;
+        font-weight: bold;
+        z-index: 1000;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      }
+
+      .theme-btn:hover {
+        transform: scale(1.1);
+        background: #ff4500;
+        color: white;
+      }
+
+      /* === СТИЛИ ДЛЯ ТЕМНОЙ ТЕМЫ === */
+      body.dark-mode {
+        /* Накладываем темный градиент поверх фона */
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                    url('Images/ONEPIECE.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        color: #eee;
+      }
+
+      body.dark-mode .card {
+        background: rgba(30, 30, 30, 0.95);
+        color: #fff;
+        border-color: #ff4500;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+      }
+
+      body.dark-mode .jinbe-card {
+        background: #222;
+        color: #fff;
+        border-color: gold;
+      }
+
+      body.dark-mode h1 {
+        color: gold;
+      }
+
+      /* === ОСТАЛЬНЫЕ СТИЛИ (КАРТОЧКИ, СЛАЙДЕР) === */
       a, button, .btn, .slider-btn {
         cursor: pointer;
       }
@@ -39,7 +89,6 @@
         margin-bottom: 10px;
       }
 
-      /* Контейнер карточек */
       .container {
         display: flex;
         flex-wrap: wrap;
@@ -93,7 +142,7 @@
         font-size: 0.9em;
       }
 
-      /* === СЛАЙДЕР === */
+      /* СЛАЙДЕР */
       .slider-wrapper {
         display: flex;
         align-items: center;
@@ -166,6 +215,8 @@
 </head>
 <body>
 
+    <button id="theme-toggle" class="theme-btn">🌙 Темная тема</button>
+
     <h1>🏴‍☠️ Моя Пиратская Команда 🏴‍☠️</h1>
 
     <div class="container">
@@ -191,6 +242,7 @@
     </div>
 
     <script>
+      // Скрипт для слайдера
       let currentSlide = 0;
       const slides = document.querySelectorAll('.jinbe-card');
 
@@ -199,6 +251,18 @@
         currentSlide = (currentSlide + step + slides.length) % slides.length;
         slides[currentSlide].classList.add('active');
       }
+
+      // Скрипт для переключения темы
+      const themeBtn = document.getElementById('theme-toggle');
+      themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        
+        if (document.body.classList.contains('dark-mode')) {
+          themeBtn.innerText = '☀️ Светлая тема';
+        } else {
+          themeBtn.innerText = '🌙 Темная тема';
+        }
+      });
     </script>
 
 </body>
