@@ -6,8 +6,9 @@
     <title>Ван Пис Карточки</title>
     
     <style>
-      /* Настройки фона всей страницы */
+      /* === НАСТРОЙКИ КУРСОРА НА ВСЕЙ СТРАНИЦЕ === */
       body {
+        /* Твой фон... */
         background-image: url('Images/ONEPIECE.jpg');
         background-size: cover;
         background-attachment: fixed;
@@ -18,6 +19,20 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         text-align: center;
         color: #fff;
+        
+        /* === ДОБАВЛЯЕМ ПЕРЕВЕРНУТЫЙ МЕЧ ЗОРО В КАЧЕСТВЕ КУРСОРА === */
+        /* Мы указываем '0 0', чтобы активная точка клика была на острие клинка (левый верхний угол) */
+        cursor: url('Images/cursor_zoro.png') 0 0, auto;
+      }
+
+      /* === УБЕДИМСЯ, ЧТО МЕЧ ВЫГЛЯДИТ ОСТРЫМ (ДЛЯ ПИКСЕЛЬ-АРТА) === */
+      body * {
+        image-rendering: pixelated;
+      }
+
+      /* Чтобы при наведении на кнопки курсор становился стандартным pointer-ом */
+      a, button {
+        cursor: pointer;
       }
 
       h1 {
@@ -154,7 +169,7 @@
 </head>
 <body>
 
-    <h1>🏴‍☠️ Пиратская Команда Луффи 🏴‍☠️</h1>
+    <h1>🏴‍☠️ Моя Пиратская Команда 🏴‍☠️</h1>
 
     <div class="container">
         <div class="card"><img src="Images/LuffyGPT.jpg" alt="Луффи"><p>Монки Д. Луффи</p><a href="https://onepiece.fandom.com/ru/wiki/Монки_Д._Луффи" class="btn" target="_blank">Капитан</a></div>
@@ -171,17 +186,8 @@
         <button class="slider-btn" onclick="moveSlide(-1)">&#10094;</button>
 
         <div id="slider-content">
-            <div class="jinbe-card active">
-                <h2>Дзимбэй</h2>
-                <img src="Images/jinbe_figure.jpg" alt="Дзимбэй">
-                <p>Рыбочеловек, рулевой команды.</p>
-            </div>
-
-            <div class="jinbe-card" style="border-color: gold;">
-                <h2 style="color: #b8860b;">Зоро</h2>
-                <img src="Images/ZoroFigurka.jpg" alt="Зоро Фигурка" style="border-color: gold;">
-                <p>Мастер трёх мечей в стиле Вано.</p>
-            </div>
+            <div class="jinbe-card active"><h2>Дзимбэй</h2><img src="Images/jinbe_figure.jpg" alt="Дзимбэй"><p>Рыбочеловек, рулевой команды.</p></div>
+            <div class="jinbe-card" style="border-color: gold;"><h2 style="color: #b8860b;">Зоро (Wano)</h2><img src="Images/ZoroFigurka.jpg" alt="Зоро Фигурка" style="border-color: gold;"><p>Мастер трёх мечей в стиле Вано.</p></div>
         </div>
 
         <button class="slider-btn" onclick="moveSlide(1)">&#10095;</button>
@@ -192,13 +198,8 @@
       const slides = document.querySelectorAll('.jinbe-card');
 
       function moveSlide(step) {
-        // Убираем активный класс у текущего
         slides[currentSlide].classList.remove('active');
-        
-        // Считаем новый индекс
         currentSlide = (currentSlide + step + slides.length) % slides.length;
-        
-        // Добавляем активный класс новому
         slides[currentSlide].classList.add('active');
       }
     </script>
